@@ -1,0 +1,42 @@
+div {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    transition: width 2s, background-color 2s, transform 2s;
+}
+
+div:hover {
+    width: 300px;
+
+
+}
+
+.velocidad1:hover {
+
+    background-color: blue;
+    transform: rotate(180deg);
+
+}
+
+.velocidad2 {
+    transition-timing-function: ease-in;
+    background-color: aqua;
+
+
+}
+
+.velocidad3 {
+    transition-timing-function: ease-out;
+}
+
+.velocidad4 {
+    transition-timing-function: linear;
+}
+
+.velocidad5 {
+    transition-timing-function: ease-in-out;
+}
+
+.velocidad2:hover {
+    background-color: aquamarine;
+}

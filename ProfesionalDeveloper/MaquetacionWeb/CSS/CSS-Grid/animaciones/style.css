@@ -1,0 +1,52 @@
+div {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    animation: prueba 3s;
+    animation-delay: 5s;
+    animation-iteration-count: 3;
+    animation-direction: alternate;
+}
+
+/* @keyframes prueba {
+    from {
+        background-color: red;
+
+    } to {
+        background-color: blue;
+    }
+} */
+
+@keyframes prueba {
+    0% {
+        background-color: red;
+        width: 150px;
+        height: 150px;
+    }
+
+    25% {
+        background-color: yellow;
+        width: 200px;
+        height: 200px;
+
+    }
+
+    50% {
+        background-color: blue;
+        width: 100px;
+        height: 100px;
+    }
+
+    75% {
+        background-color: green;
+        width: 150px;
+        height: 150px;
+    }
+
+
+    100% {
+        background-color: red;
+        width: 100px;
+        height: 100px;
+    }
+}
