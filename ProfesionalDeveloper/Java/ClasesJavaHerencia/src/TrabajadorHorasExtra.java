@@ -10,4 +10,11 @@ public class TrabajadorHorasExtra extends Trabajador {
 
     }
 
+    @Override
+    public Double salario(){
+        return super.salario() + (horasExtra * precioHora);
+    }
+
+
+
 }
