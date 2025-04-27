@@ -2,14 +2,17 @@ import { useDispatch, useSelector } from "react-redux";
 import {getPokemons} from '../saga'
 import { useEffect } from "react";
 import { fetchingPokemons } from "../reducer/pokemonSlice";
+import { useState } from "react";
 
 export const Pokemons = () => {
-   const {isLoading, pokemons =[], page, error}= useSelector(state => state.pokemons)
+
+   const [localPage, setLocalPage]= useState(0)
+   const {isLoading, pokemons =[], error}= useSelector(state => state.pokemons)
    const dispatch = useDispatch();
 
    useEffect(()=>{
-    dispatch(fetchingPokemons())
-   },[])
+    dispatch(fetchingPokemons(localPage))
+   },[localPage, dispatch])
 
    return (
     <div>
@@ -22,7 +25,7 @@ export const Pokemons = () => {
             })}
         </div>
         <button
-            onClick={()=>{dispatch(getPokemons(page))}}
+            onClick={()=> setLocalPage(localPage + 1)}
         >Next Page</button>
     </div>
    )
