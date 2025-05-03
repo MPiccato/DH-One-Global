@@ -25,9 +25,16 @@ public class University {
 
     // Buscar un curso en el set de cursos
 
-    public void agregateStudent(Integer courseId, Integer studentId){
+    public void agregateStudent(Integer courseId, Integer studentId) throws Exception{
         Course course = findCourse(courseId);
         Student student = findStudent(studentId);
+
+        if(course == null){
+            throw new CourseNotFoundException("Curso no encontrado");
+        }
+        if(student == null) {
+            throw new StudentNotFoundException("Estudiante no encontrado");
+        }
         course.addStudent(student);
 
     }
