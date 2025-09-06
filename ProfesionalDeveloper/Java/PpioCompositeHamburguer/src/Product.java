@@ -1,4 +1,9 @@
-package PACKAGE_NAME;
+public abstract class Product {
 
-public class Product {
+    private String name;
+    public Product(String name){
+        this.name = name;
+    }
+
+    public abstract Double calculateTotal();
 }

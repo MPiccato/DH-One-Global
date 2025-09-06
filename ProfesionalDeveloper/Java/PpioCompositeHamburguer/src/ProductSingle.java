@@ -1,4 +1,16 @@
-package PACKAGE_NAME;
+public class ProductSingle extends Product {
 
-public class ProductSingle {
+    private Double price;
+
+    public ProductSingle(String name, Double price){
+        super(name);
+        this.price = price;
+    }
+
+    @Override
+    public Double calculateTotal(){
+        return price;
+    }
+
+
 }

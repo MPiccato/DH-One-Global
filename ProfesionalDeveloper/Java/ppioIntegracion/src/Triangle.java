@@ -1,4 +1,15 @@
-package PACKAGE_NAME;
+public class Triangle implements GeometricFigure{
 
-public class Triangle {
+    private Double base;
+    private Double height;
+
+    public Triangle(Double base, Double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    @Override
+    public Double calculateArea(){
+        return (base * height) / 2;
+    }
 }
