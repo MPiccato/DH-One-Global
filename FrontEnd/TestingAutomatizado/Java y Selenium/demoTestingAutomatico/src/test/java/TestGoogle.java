@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class testGoogle {
+public class TestGoogle {
 
     public WebDriver driver;
 
@@ -26,6 +26,7 @@ public class testGoogle {
         searchBox.sendKeys(Keys.ENTER);
         //searchButton.click();
 
+        searchBox = driver.findElement(By.name("q"));
         searchBox.getAttribute("value"); // Espero que me devuelva el valor "Selenium"
 
         driver.quit(); // Cierro el test

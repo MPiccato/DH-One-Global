@@ -1,0 +1,18 @@
+use EMarket;
+/* MANEJO DE ERRORES */
+
+DELIMITER &&
+CREATE PROCEDURE insertCategory(name VARCHAR(50))
+BEGIN
+	DECLARE EXIT HANDLER FOR 1146
+    BEGIN
+		SELECT 'NO EXISTE LA CATEGORIA';
+	END;
+    INSERT INTO tablaInexistente VALUES(name);
+    SELECT 'EXITO';
+END;
+DELIMITER;
+
+DROP PROCEDURE insertCategory;
+
+CALL insertCategory;
