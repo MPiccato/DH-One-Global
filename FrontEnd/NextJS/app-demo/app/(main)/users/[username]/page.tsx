@@ -2,8 +2,9 @@ import Message from "@/app/components/messages";
 import UserTabs from "@/app/components/users/UserTabs";
 import Link from "next/link";
 
-export default function UsersPage({params}: {params: {username: string}}) {
-    const {username} = params;
+export default async function UsersPage({params}: {params: {username: string}}) {
+    const {username} = await params;
+    console.log(username);
         // Log the username to the console for debugging
     const user = {
       id: 1,
