@@ -1,10 +1,28 @@
+"use client";
+
+import { useState } from 'react';
 export default function MessagesLayout({ children }: { children: React.ReactNode }) {
+    
+    const [isOpen, setIsOpen] = useState(false);
     return (
-        <div>
-        <h1>Encabezado Messages</h1>
-        <main>
-            {children}
-        </main>
-        </div>
+
+        <>
+
+
+            <div>
+                
+                <main>
+                    {children}
+                </main>
+            </div>
+        
+        </>
+
+
+
+
+
+        
+        
     );
     }
