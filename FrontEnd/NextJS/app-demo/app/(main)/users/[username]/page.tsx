@@ -22,7 +22,7 @@ const UserPage = async ({params}:{params: {username:string}}) => {
     
     return (
 
-        <main className="flex flex-col bg-gray-100 p-4">
+        <main className="flex flex-col bg-gray-100 p-4 text-black">
             <section className="flex flex-col mb-6">
                 <div className="rounded-full bg-gray-300 p-4 text-center w-15 mb-3">
                     <span className="text-lg font-semibold">MP</span> 

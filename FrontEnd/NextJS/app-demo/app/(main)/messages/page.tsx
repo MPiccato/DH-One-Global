@@ -10,7 +10,7 @@ const MessagePage = () => {
     
     return (
         <>
-            <main className="flex flex-col bg-gray-100 p-4">
+            <main className="flex flex-col bg-gray-100 p-4 text-black">
                 <section className="flex flex-col mb-6">
                     {messages.map((mensaje, index) => (
 
