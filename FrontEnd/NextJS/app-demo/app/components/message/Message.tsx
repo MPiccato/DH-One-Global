@@ -15,10 +15,10 @@ const Message = ({message}: MessageProps) => {
                 </div>
                 <div className="flex flex-col ml-3">
                     <div className='flex'>
-                        <h4 className="font-semibold text-sm">
+                        <h2>
                             {message.name}
-                        </h4>
-                        <h3 className="text-sm ml-2 text-gray-600 cursor-pointer">
+                        </h2>
+                        <h3>
                             <Link href={`https://www.facebook.com/${message.username}`}>@{message.username}</Link>   
                         </h3>
                     </div>

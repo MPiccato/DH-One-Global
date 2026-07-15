@@ -24,3 +24,12 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer components {
+  h2 {
+    @apply font-semibold text-balance;
+  }
+  h3 {
+    @apply text-shadow-md ml-3 text-gray-600 cursor-pointer;
+  }
+}
