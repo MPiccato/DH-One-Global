@@ -1,3 +1,4 @@
+import Message from "@/app/components/message/Message";
 import Link from "next/link";
 
 const UserPage = async ({params}:{params: {username:string}}) => {
@@ -51,35 +52,8 @@ const UserPage = async ({params}:{params: {username:string}}) => {
             </div>
             <div>
                 {user.messages.map((mensaje, index) => (
+                    <Message key={index} message={mensaje} />
 
-                    <>
-         
-                        <div className="flex mb-3" key={index}>
-                            <div className="rounded-full bg-gray-300 p-3 text-center w-15 mb-5">
-
-                                <span className="text-lg font-semibold">MP</span> 
-                            </div>
-                            <div className="flex flex-col ml-3">
-                                <div className='flex'>
-                                    <h4 className="font-semibold text-sm">
-                                        {user.name}
-                                    </h4>
-                                    <h3 className="text-sm ml-2 text-gray-600 cursor-pointer">
-                                        <Link href={`https://www.facebook.com/${user.username}`}>@{user.username}</Link>   
-                                    </h3>
-                                </div>
-                                <p>
-                                    {mensaje.message}
-                                </p>
-                            </div>
-                            
-
-                            
-                        </div>
-                    
-                    </>
-
-                    
                 ))}
             </div>
             
