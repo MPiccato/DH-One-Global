@@ -25,7 +25,7 @@ export const Primary: Story = {
     links: [
       {title:'Inicio', href:'/'},
       {title:'Explorar',href:'/explorar'},
-      {title:"Perfil",href:'/mi-perfil'}
+      {title:"Perfil",href:'/users/mpiccato'}
     ]
    
   },

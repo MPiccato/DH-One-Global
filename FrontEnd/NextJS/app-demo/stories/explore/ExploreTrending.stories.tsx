@@ -16,13 +16,20 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-
-
-
-
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
   args: {
+    hashes: [
+      {hash:"Martin",count:4},
+      {hash:"Lautaro",count:2},
+      {hash:"Lorenzo",count:1},
+    ]
    
   },
 };
+
+export const Empty: Story = {
+  args: {
+    
+  },
+};
+

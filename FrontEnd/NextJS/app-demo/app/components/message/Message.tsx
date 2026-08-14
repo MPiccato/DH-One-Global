@@ -1,5 +1,8 @@
 import { MessageType } from "@/app/types/message.type";
 import Link from "next/link";
+import Image from "next/image";
+import UserCard, { userCardLayout } from "../users/UserCard";
+
 
 
 type MessageProps = {
@@ -7,29 +10,16 @@ type MessageProps = {
 }
 
 const Message = ({message}: MessageProps) => {
-    return <>
-            <div className="flex mb-3">
-                <div className="rounded-full bg-gray-300 p-3 text-center w-15 mb-5">
 
-                    <span className="text-lg font-semibold">MP</span> 
-                </div>
-                <div className="flex flex-col ml-3">
-                    <div className='flex'>
-                        <h2>
-                            {message.name}
-                        </h2>
-                        <h3>
-                            <Link href={`https://www.facebook.com/${message.username}`}>@{message.username}</Link>   
-                        </h3>
-                    </div>
-                    <p>
-                        {message.message}
-                    </p>
-                </div>
-            </div>
+    return  <UserCard  user={message.user} layout={userCardLayout.VERTICAL}>
+                <p>
+                    {message.message}
+                </p>
+            
+            </UserCard>
+
     
-
-    </>
+  
 }
 
 export default Message;

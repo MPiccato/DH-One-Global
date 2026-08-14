@@ -1,39 +1,44 @@
-import Message from "@/app/components/message/Message";
+
 import UserTabs from "@/app/components/users/UserTabs";
+import userAPI from "@/app/services/users/users.service";
+import Image from "next/image";
 import Link from "next/link";
 
+
+
 const UserPage = async ({params}:{params: {username:string}}) => {
-    const {username} = await params;
+    
+    //const { username } = params; // Corregido: 'params' no es una promesa, no se usa await.
+    const userPromise =  userAPI.getUserData(params.username);
+    const userMessagesPromise =  userAPI.getUserMessages(params.username)
+    const userMessageRepliesPromise =  userAPI.getUserMessagesReplies(params.username)
 
-    const user = {
-        username: username.toLowerCase(),
-        name: 'Martin Piccato',
-        bio: 'Full Stack Developer',
-        followersCount: 15,
-        followingCount: 3,
-        messages: [
-            {username:"mpiccato",name:"Martin Piccato",message: "Buen programador", repliesCount:3},
-            {username:"mpiccato",name:"Martin Piccato",message: "Le falta profundidad de conocimiento", repliesCount:15},
-        ],
-        replies: [
-            {message: "Es cierto que es bueno", repliesCount:2},
-            {message: "Lo bueno es que va aprendiendo", repliesCount:4},
-        ]
+    const [user, userMessage, userMessageReplies] = await Promise.all([userPromise,userMessagesPromise,userMessageRepliesPromise])
+    
 
-    }
+    console.log(user); // Ahora puedes loguear los datos
+
     
     return (
 
         <main className="flex flex-col bg-gray-100 p-4 text-black">
             <section className="flex flex-col mb-6">
-                <div className="rounded-full bg-gray-300 p-4 text-center w-15 mb-3">
-                    <span className="text-lg font-semibold">MP</span> 
+                {/* Corregido: Se usa el componente Image de Next.js para mostrar la foto de perfil.
+                    Se cambió la clase 'w-15' (inválida) por 'w-16' y 'h-16' para hacer un círculo.
+                    Se usa 'object-cover' para que la imagen llene el espacio sin distorsionarse. */}
+                <div className="relative w-16 h-16 mb-3">
+                    <Image 
+                        src={user.photoUrl}
+                        alt={`Foto de perfil de ${user.name}`}
+                        className="rounded-full object-cover"
+                        fill
+                    />
                 </div>
                 <h2 className="font-semibold mb-2 text-xl">
                     {user.name}
                 </h2>
                 <h3 className="text-md mb-2 text-gray-600 cursor-pointer">
-                <Link href={`https://www.facebook.com/${user.username}`}>@{user.username}</Link>
+                <Link href={`/users/${user.username}`}>@{user.username}</Link>
                     
                 </h3>
                 <div className="mb-3">
@@ -47,7 +52,8 @@ const UserPage = async ({params}:{params: {username:string}}) => {
 
 
             </section>
-            <UserTabs messages={user.messages} replies={[]} />
+            {/* Corregido: Pasamos los mensajes y respuestas del usuario. Usamos '?? []' para asegurar que siempre sea un array. */}
+            <UserTabs messages={userMessage.content ?? []} replies={ userMessageReplies.content ?? []} />
 
            
             
