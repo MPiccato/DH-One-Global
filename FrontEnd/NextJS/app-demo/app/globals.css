@@ -5,12 +5,6 @@
   --foreground: #171717;
 }
 
-/* @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-} */
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -26,17 +20,53 @@ body {
 }
 
 @layer components {
-  h2 {
-    @apply font-semibold text-balance;
+  main {
+    display: flex;
+    flex-direction: column;
   }
+  h1 {
+    text-shadow: 0 2px 4px rgba(231, 16, 16, 0.1);
+    margin-left: 0.75rem;
+    color: #0466ef;
+    cursor: pointer;
+    
+    
+  }
+  h2 {
+    text-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+    margin-left: 0.75rem;
+    color: #1f2937;
+    cursor: pointer;
+  }
+  section {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    
+  }
+  
+ 
   h3 {
-    @apply text-shadow-md ml-3 text-gray-600 cursor-pointer;
+    text-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+    margin-left: 0.75rem;
+    color: #4b5563;
+    cursor: pointer;
   }
   .button-primary {
-    @apply rounded-lg;
-    @apply bg-blue-400;
-    @apply text-white;
-    @apply hover:bg-blue-500;
-    @apply px-4 py-2;
+    border-radius: 0.5rem;
+    background-color: #60a5fa;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+  }
+  .button-primary:hover {
+    background-color: #3b82f6;
+  }
+  .link-primary {
+    color: #60a5fa;
+  }
+  .link-primary:hover {
+    color: #3b82f6;
   }
 }

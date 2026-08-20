@@ -37,6 +37,11 @@ const UsersLayout: FC<PropsWithChildren> = async ({children}) => {
             <div className='col-span-3'>
                 <ExploreUsers users={users.content} layout={userCardLayout.VERTICAL} />
             </div>
+            <Link href="/faq">
+                <div className = "link-primary text-center mt-4">
+                    Preguntas Frecuentes
+                </div>
+            </Link>
         </div>
 
     </>

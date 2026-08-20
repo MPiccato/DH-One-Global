@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,7 +21,22 @@ export default function RootLayout({
       // Corregido: Se usan las variables de las fuentes GeistSans y GeistMono.
       className={`${GeistSans.variable} ${GeistMono.variable} h-full antialiased`}
     >
-      <body >{children}</body>
+      <body >
+        <header>
+          <nav>
+            <div>
+                <Link href="/explore">Logo</Link>
+            </div>
+          </nav>
+
+        </header>
+       
+        
+        
+        {children}
+      
+      
+      </body>
     </html>
   );
 }
