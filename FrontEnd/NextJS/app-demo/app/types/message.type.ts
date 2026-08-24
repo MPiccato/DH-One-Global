@@ -1,8 +1,8 @@
 import { UserType } from "./user.type"
 
 export type MessageType = {
-    user: UserType,
-    name: string,
+    name: UserType,
+    username: string,
     message: string
 }
 

@@ -1,6 +1,5 @@
 import { MessageType } from "@/app/types/message.type";
-import Link from "next/link";
-import Image from "next/image";
+
 import UserCard, { userCardLayout } from "../users/UserCard";
 
 

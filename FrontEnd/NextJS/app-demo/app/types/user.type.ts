@@ -1,14 +1,13 @@
 export type BaseUser= {
     "id": string,
-    "username": string,
     "name": string,
+    "username": string,
     "bio": string,
     "photoUrl": string,
 
 }
 
 export type UserType = BaseUser & {
-    
     "createAt": string,
     "followersCount": string,
     "followingCount": string,
