@@ -5,7 +5,7 @@ import { PageType } from "@/app/types/pagination.types";
 
 class MessagesApi {
     getMessagesFeed = async (page:number, size: number): Promise<PageType<MessageType>> => 
-        httpGetPublic(`/message/feed`, new URLSearchParams({ page: `${page}`, size: `${size}` }));
+        httpGetPublic(`/messages/feed`, new URLSearchParams({ page: `${page}`, size: `${size}` }));
     
 }
 

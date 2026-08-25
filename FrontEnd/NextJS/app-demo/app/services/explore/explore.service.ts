@@ -12,7 +12,7 @@ class ExploreAPI {
         httpGetPublic(`/explore/trending`, new URLSearchParams({page:`${page}`, size:`${size}`}));
     
     getFollowRecomendations = async (page: number, size: number): Promise<PageType<TrendingUserType>> => 
-        httpGetPublic(`/explore/follow-recomendations`, new URLSearchParams({page:`${page}`, size:`${size}`}));
+        httpGetPublic(`/explore/follow-recommendations`, new URLSearchParams({page:`${page}`, size:`${size}`}));
 }
 
 const exploreAPI = new ExploreAPI();
