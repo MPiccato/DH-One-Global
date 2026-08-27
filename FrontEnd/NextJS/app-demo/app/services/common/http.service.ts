@@ -19,3 +19,18 @@ export const httpGetPublic = async <T>(endpoint: string, params?: URLSearchParam
 
     return httpGet(`${API_PUBLIC_ENDPOINT}${endpoint}`, params); // Y luego retornarlos
 }
+
+export const httpPost = async <T>(endpoint: string, body: object): Promise<T> => {
+    const res = await fetch(`${API_URL}${endpoint}`, {
+        method:"POST",
+        headers: {
+            "Content-type":"application/json",
+            "Authorization":" Bearer token"
+        },
+
+        body: JSON.stringify(body) 
+    }
+    );
+    if (!res.ok) { throw new Error("no se pudo enviar nada")}
+    return res.json();
+}
