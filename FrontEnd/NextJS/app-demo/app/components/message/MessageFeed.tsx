@@ -41,6 +41,7 @@ const MessageFeed = ({ initialMessages }: MessageFeedProps) => {
                 next={fetchData} // Función 
                 hasMore={hasMore}
                 refreshFunction={refresh}
+                pullDownToRefresh={false}
                 loader={<p>Cargando mensajes...</p>}
                 endMessage={<p style={{ textAlign: 'center' }}>Todos los elementos agregados</p>}
                 >
