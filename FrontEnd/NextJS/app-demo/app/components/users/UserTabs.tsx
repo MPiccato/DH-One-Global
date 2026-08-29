@@ -14,7 +14,7 @@ const UserTabs = ({messages,replies}: UserTabsProps) => {
     const [tab, setTab] = useState<TabView>(TabView.MESSAGES);
     return <>
 
-        <div className="flex justify-evenly mb-3">
+        <div className="flex justify-evenly mb-3 w-full">
             <div 
                 onClick={() => setTab(TabView.MESSAGES)} 
                 className={`cursor-pointer  ${tab === TabView.MESSAGES ? 'border-b-4 border-black-300':''}`}>
@@ -26,7 +26,7 @@ const UserTabs = ({messages,replies}: UserTabsProps) => {
                     Respuestas
             </div>
         </div>
-        <div>
+        <div className="flex w-full flex-col">
             {tab === TabView.MESSAGES && messages.map((mensaje, index) => (
                 <Message key={index} message={mensaje} />
 

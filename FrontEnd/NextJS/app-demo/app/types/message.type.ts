@@ -1,9 +1,11 @@
 import { UserType } from "./user.type"
 
 export type MessageType = {
-    name: UserType,
+    id: string,
+    user: UserType,
     username: string,
-    message: string
+    message: string,
+    repliesCount: number
 }
 
 export type UserTabsProps = {
