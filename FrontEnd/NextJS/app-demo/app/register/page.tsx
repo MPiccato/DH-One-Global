@@ -1,13 +1,23 @@
+"use client"
 import RegisterForm from "../components/auth/RegisterForm";
 
 
 const RegisterPage = () => {
   return (
-    <div className="flex justify-center w-full">
-        <h2 className="mb-2">Registro a la Red Social</h2>
-        <RegisterForm />
+    <>
+    
+      <div className="mb-4 p-5 justify-center">
+          
+          <div className="w-full justify-center">
+            <h1>Registro a la Red Social</h1>
+          </div>
+          
+          
 
-    </div>
+      </div>
+      <RegisterForm />
+    </>
+    
   )
 }
 
