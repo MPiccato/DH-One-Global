@@ -27,7 +27,7 @@ const LoginForm = () => {
     return (
         <form onSubmit={handleSubmit(onSubmit)}> 
                 <div className="mb-2 flex flex-col">
-                    <label>Nombre de Usuario:</label>
+                    <label className="mb-2">Nombre de Usuario:</label>
                     <input 
                         {...register("username")}
                         className="p-4  mb-4 rounded bg-gray-50 border border-gray-200"
@@ -36,7 +36,7 @@ const LoginForm = () => {
                     
                 </div>
                 <div className="mb-2 flex flex-col">
-                    <label>Contraseña:</label>
+                    <label className="mb-2">Contraseña:</label>
                     <input 
                         {...register("password")}
                         className="p-4  mb-4 rounded bg-gray-50 border border-gray-200" 
@@ -46,7 +46,7 @@ const LoginForm = () => {
                 <div>
                     <button 
                         onClick={handleSubmit(onSubmit)}
-                        className="link-primary">Ingresar</button>
+                        className="button-primary">Ingresar</button>
                 </div>
             </form>
     )
