@@ -32,7 +32,7 @@ const UsersLayout: FC<PropsWithChildren> = async ({children}) => {
                 {children}
             </main>
             <div className='col-span-3'>
-                <ExploreTrending hashes={hashes} />
+                <ExploreTrending hashes={hashes.content} />
             </div>
             <div className='col-span-3'>
                 <ExploreUsers users={users.content} layout={userCardLayout.VERTICAL} />

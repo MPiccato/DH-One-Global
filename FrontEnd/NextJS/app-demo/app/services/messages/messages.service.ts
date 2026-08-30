@@ -13,8 +13,8 @@ class MessagesApi {
     getMessages = async (id:string): Promise<MessageType> => 
         httpGetPublic(`/messages/${id}`);
     
-    postMessage = async (message: string): Promise<MessageType> => {
-        return httpPost('/message', {message: message});
+    postMessage = async (message: string, parentid?:string): Promise<MessageType> => {
+        return httpPost('/message', {message: message, parentid:parentid ?? null});
     }
 }
 
