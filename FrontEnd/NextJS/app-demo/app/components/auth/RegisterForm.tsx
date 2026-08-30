@@ -29,7 +29,7 @@ const RegisterForm = () => {
     const {register, handleSubmit, formState:{errors}} = useForm<RegisterFormData>({
         resolver: yupResolver(schema)})
     return (
-        <form onSubmit={handleSubmit(onSubmit)}> 
+        <form  onSubmit={handleSubmit(onSubmit)}> 
                 <div className="mb-2 flex flex-col">
                     <label>Nombre Completo:</label>
                     <input 
@@ -68,7 +68,7 @@ const RegisterForm = () => {
                 <div>
                     <button 
                         onClick={handleSubmit(onSubmit)}
-                        className="link-primary">Crear Cuenta</button>
+                        className="button-primary">Crear Cuenta</button>
                 </div>
             </form>
     )
