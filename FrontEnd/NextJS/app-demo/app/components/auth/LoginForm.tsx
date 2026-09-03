@@ -4,6 +4,7 @@ import { FormProvider, useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import SubmitButton from "../form/SubmitButton"
+import InputText from "../form/InputText"
 
 type LoginFormData = {
     username: string,
@@ -33,23 +34,17 @@ const LoginForm = () => {
         <FormProvider {...methods}>
 
             <form onSubmit={handleSubmit(onSubmit)}> 
-                    <div className="mb-2 flex flex-col">
-                        <label className="mb-2">Nombre de Usuario:</label>
-                        <input 
-                            {...register("username")}
-                            className="p-4  mb-4 rounded bg-gray-50 border border-gray-200"
-                            type="text" placeholder="Martin Piccato"/>
-                        {errors?.username && <h4 className="text-red-400 mt-2">Este campo es obligatorio</h4>}    
-                        
-                    </div>
-                    <div className="mb-2 flex flex-col">
-                        <label className="mb-2">Contraseña:</label>
-                        <input 
-                            {...register("password")}
-                            className="p-4  mb-4 rounded bg-gray-50 border border-gray-200" 
-                            type="password"/>
-                        {errors?.password && <h4 className="mt-2 text-red-600">Este campo es requerido</h4>}
-                    </div>
+                    <InputText 
+                        label="Nombre Usuario" 
+                        placeholder="Martin Piccato" 
+                        fieldName="name" type="text"
+                        styles="mb-2"
+                    />
+                    <InputText 
+                        label="Contraseña" 
+                        placeholder="••••••••" 
+                        fieldName="password" type="password"
+                    />
 
                     <SubmitButton 
                         label="Ingresar"
@@ -57,7 +52,7 @@ const LoginForm = () => {
                         styles="mb-2"/>
                     
                 </form>
-            </FormProvider>
+        </FormProvider>
     )
     }
 
