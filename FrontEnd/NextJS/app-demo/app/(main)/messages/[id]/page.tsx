@@ -1,7 +1,6 @@
 
-import Message from "@/app/components/message/Message";
-import MessagePostForm from "@/app/components/message/MessagePostForm";
 import messageAPI from "@/app/services/messages/messages.service";
+import MessagePageContainer from "./page.container";
 
 const MessagesPage = async ({params}:{params: {id:string}}) => {
     //Promesas api
@@ -12,18 +11,10 @@ const MessagesPage = async ({params}:{params: {id:string}}) => {
     return <>
 
             <main className="flex flex-col bg-gray-100 p-4 text-black">
-                    <section className="flex flex-col mb-6">
-                        <Message  message={message}/>
-                    </section>
-                    <section className="flex flex-col mb-6">
-                        <MessagePostForm parentid={params.id} />
-
-                    </section>
-                    <section className="flex flex-col w-full">
-                        {repliesPage.content.map((replies,index) => <Message key={index} message={replies}/>)}
-                    </section>
                     
-                </main>
+                <MessagePageContainer message={message} repliesPage={repliesPage} parentId={params.id} />     
+                    
+            </main>
     </>
 }
 export default MessagesPage;

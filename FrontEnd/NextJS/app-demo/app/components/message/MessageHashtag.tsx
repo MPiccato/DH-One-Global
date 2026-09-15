@@ -12,7 +12,7 @@ const MessageHashtag = ({ hash }: MessageHashtagProps) => {
 
         <>
             
-            <Link href={`/mensajes?query=${hash.hash}&type=hash`} className="text-blue-500 hover:underline">
+            <Link href={`/?query=${hash.hash?.replace('#', '') ?? ''}&type=hash`} className="text-blue-500 hover:underline">
                 <h4 className="font-semibold gap-2"># {hash.hash}</h4>
             </Link>
             
