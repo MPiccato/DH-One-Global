@@ -20,10 +20,10 @@ export const httpGetPublic = async <T>(endpoint: string, params?: URLSearchParam
     return httpGet(`${API_PUBLIC_ENDPOINT}${endpoint}`, params); // Y luego retornarlos
 }
 
-export const httpPost = async <T>(endpoint: string, body: object): Promise<T> => {
+export const httpPost = async <T>(endpoint: string, body: object, skipAuth?: boolean): Promise<T> => {
     const res = await fetch(`${API_URL}${endpoint}`, {
         method:"POST",
-        headers: {
+        headers: skipAuth ? {"Content-type":"application/json"} : {
             "Content-type":"application/json",
             "Authorization":" Bearer token"
         },
@@ -31,6 +31,16 @@ export const httpPost = async <T>(endpoint: string, body: object): Promise<T> =>
         body: JSON.stringify(body) 
     }
     );
-    if (!res.ok) { throw new Error("no se pudo enviar nada")}
+    if (!res.ok) { 
+        if (res.status === 401) {
+            throw new Error("no autorizado");
+        }
+        throw new Error("no se pudo enviar nada")}
     return res.json();
+}
+
+
+export const httpPostPublic = async <T>(endpoint: string, body: object ): Promise<T> =>{
+
+    return httpPost(`${API_PUBLIC_ENDPOINT}${endpoint}`, body, true); // Y luego retornarlos
 }

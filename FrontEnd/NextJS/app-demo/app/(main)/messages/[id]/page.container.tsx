@@ -3,27 +3,44 @@
 // con la funcionalidad de mensajes. 
 "use client"
 import Message from "@/app/components/message/Message";
+import MessageList from "@/app/components/message/MessageList";
 import MessagePostForm from "@/app/components/message/MessagePostForm";
-import { MessageProvider } from "@/app/contexts/message.context";
+import useMessages, { MessageProvider } from "@/app/contexts/message.context";
 import { MessageType } from "@/app/types/message.type";
 import { PageType } from "@/app/types/pagination.types";
+
 
 type MessagePageProps = {
     message: MessageType;
     repliesPage: PageType<MessageType>;
     parentId: string;
 }
+
+const MessageContainer = () => {
+    const {message} = useMessages();
+    if (!message) {
+        return <div>Loading...</div>
+    }
+    return <>
+        <section className="flex flex-col mb-6">
+                <Message  message={message}/>
+        </section>
+
+    
+    </>
+}
 const MessagePageContainer = ({message, repliesPage, parentId}: MessagePageProps) => {
-    return <MessageProvider>
-            <section className="flex flex-col mb-6">
-                        <Message  message={message}/>
-                </section>
+
+    return <MessageProvider initialPage={repliesPage}>
+
+                <MessageContainer/>
+            
                 <section className="flex flex-col mb-6">
-                    <MessagePostForm parentid={parentId} />
+                    <MessagePostForm parentId={parentId} />
 
                 </section>
                 <section className="flex flex-col w-full">
-                    {repliesPage.content.map((replies,index) => <Message key={index} message={replies}/>)}
+                   <MessageList/>
             </section>
     
         </MessageProvider>
